@@ -10,4 +10,8 @@ class Cart {
 
   // get cart
 
+  // add items to cart
+
+  // remove item from cart
+
 }
