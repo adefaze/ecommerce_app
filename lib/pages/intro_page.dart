@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -47,7 +48,7 @@ class IntroPage extends StatelessWidget {
                     )),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.green[900],
+                    color: Colors.grey[900],
                     borderRadius: BorderRadius.circular(12),
                   ),
                   padding: const EdgeInsets.all(25),
