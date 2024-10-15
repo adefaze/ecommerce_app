@@ -53,7 +53,77 @@ class _HomepageState extends State<Homepage> {
               ));
         }),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        backgroundColor: Colors.grey[900],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                //logo
+                DrawerHeader(
+                  child: Image.asset(
+                    'lib/images/nike_logo.png',
+                    width: 200,
+                    color: Colors.white,
+                  ),
+                ),
+
+                //other pages
+                //home
+                const Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                //about
+                const Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.info,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'About',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            //logout
+            const Padding(
+              padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: _pages[_selectedIndex],
     );
   }
