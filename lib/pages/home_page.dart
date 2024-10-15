@@ -35,10 +35,25 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
-      backgroundColor: Colors.grey[300],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(builder: (context) {
+          return IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ));
+        }),
+      ),
+      drawer: Drawer(),
       body: _pages[_selectedIndex],
     );
   }
