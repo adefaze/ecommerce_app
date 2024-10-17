@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'shoe.dart';
 
-class Cart {
+class Cart extends ChangeNotifier {
   //list of shoes for sale
   List<Shoe> shoeShop = [
     Shoe(
@@ -12,13 +14,13 @@ class Cart {
     Shoe(
         name: 'Nike Air Zoom',
         price: '300',
-        imagePath: 'lib/images/nike_air_zoom.png',
+        imagePath: 'lib/images/nike_air_zoom.jpg',
         description:
             'Sound familiar? A strong but flexible upper gives you the containment and stretch that quick cuts and dynamic movements demand'),
     Shoe(
         name: 'Nike Air Max',
         price: '500',
-        imagePath: 'lib/images/nike_free.png',
+        imagePath: 'lib/images/Nike_free.png',
         description:
             'Ahead of its time in \'99, the futuristic Air Max SNDR is back and classier than ever. '),
     Shoe(
@@ -45,10 +47,12 @@ class Cart {
   // add items to cart
   void addItemToCart(Shoe shoe) {
     userCart.add(shoe);
+    notifyListeners();
   }
 
   // remove item from cart
   void removeItemFromCart(Shoe shoe) {
     userCart.remove(shoe);
+    notifyListeners();
   }
 }
