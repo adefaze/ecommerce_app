@@ -4,8 +4,26 @@ import 'package:ecommerce_app/models/shoe.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ShopPage extends StatelessWidget {
+class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
+
+  @override
+  State<ShopPage> createState() => _ShopPageState();
+}
+
+class _ShopPageState extends State<ShopPage> {
+// add shoe to cart
+  void addShoeToCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+    //alert user
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Successfully added'),
+        content: Text('Check your cart'),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +92,7 @@ class ShopPage extends StatelessWidget {
                 // return the shoe
                 return ShoeTile(
                   shoe: shoe,
+                  onTap: () => addShoeToCart(shoe),
                 );
               },
             ),

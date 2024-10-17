@@ -2,8 +2,9 @@ import 'package:ecommerce_app/models/shoe.dart';
 import 'package:flutter/material.dart';
 
 class ShoeTile extends StatelessWidget {
-  Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  final Shoe shoe;
+  final Function()? onTap;
+  const ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -60,16 +61,19 @@ class ShoeTile extends StatelessWidget {
                   ],
                 ),
                 //plus button
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12))),
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.white,
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: const BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12))),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
